@@ -31,6 +31,18 @@ próprio, com a fonte ajustada para leitura.
 - Omarchy (ou Arch com Neovim 0.11+, kitty e uma Nerd Font). Fora do Omarchy funciona, mas com o tema padrão do LazyVim.
 - Um cofre de notas: por padrão `~/Cofre`. Outra pasta: variável `COFRE`.
 
+## Seu cofre
+
+O pearwood não traz notas: ele abre a pasta que você já tem (por padrão `~/Cofre`; outra pasta com `COFRE=`). Serve
+qualquer pasta de arquivos `.md`, inclusive um cofre do Obsidian, que continua funcionando no Obsidian ao mesmo tempo.
+
+- Arquivos `.md` soltos na raiz da pasta são a caixa de entrada (o que falta catalogar).
+- Os atalhos do PARA esperam as pastas `01 Projetos`, `02 Áreas`, `03 Resources` e `04 Arquivo`. Sem elas, o resto
+  funciona e esses atalhos só não têm aonde ir. Os nomes ficam em `lua/cofre/para.lua` e nos menus de
+  `lua/plugins/cofre.lua` e `lua/cofre/nav.lua`.
+- O diário vai para `02 Áreas/Diário` quando existe `02 Áreas`; senão, para a raiz.
+- O editor não cria pastas no seu cofre por conta própria.
+
 ## Instalar
 
 ```bash

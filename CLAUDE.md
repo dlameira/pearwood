@@ -30,9 +30,11 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
 ## Desenvolvimento
 - Plugins (lazy.nvim) ficam fora do repo, em `~/.local/share/pearwood`.
 - Mudanças de Lua só valem ao reabrir o editor.
+- Nunca criar pastas no cofre do usuário sem ele pedir (ex.: o diário só usa `02 Áreas/Diário` se `02 Áreas` existir).
 - Testar com outro cofre: `COFRE=/tmp/cofre-teste NVIM_APPNAME=pearwood nvim`.
 
 ## Pendências
+- [ ] Nomes das pastas do PARA repetidos em `para.lua`, `plugins/cofre.lua` e `nav.lua`: deixar só em `para.lua`.
 - [ ] Tela inicial no visual do painel do LazyVim (logo grande), mantendo os itens do cofre.
 - [ ] Captura rápida "para pesquisar" (ideia em aberto).
 - [ ] Ao trocar de fonte (9 → 11) ainda há uma piscada; alternativa é tamanho único.

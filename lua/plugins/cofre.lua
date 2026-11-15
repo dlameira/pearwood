@@ -31,7 +31,8 @@ return {
       frontmatter = { enabled = false }, -- nota de ideia/texto não leva frontmatter
       link = { style = "wiki", format = "shortest" },
       daily_notes = {
-        folder = "02 Áreas/Diário",
+        -- Diário dentro de "02 Áreas" só se o cofre já usa o PARA; senão fica na raiz (não cria pastas no cofre de ninguém).
+        folder = vim.uv.fs_stat(cofre .. "/02 Áreas") and "02 Áreas/Diário" or nil,
         date_format = "YYYY-MM-DD",
         default_tags = {},
         workdays_only = false,
