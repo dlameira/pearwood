@@ -1,0 +1,55 @@
+# pearwood
+
+**Um editor para um cofre de notas em Markdown (como o do Obsidian), feito sobre o Neovim, mas com cara e atalhos de
+editor de texto comum.** As notas abrem já em modo de escrita, sem modos do Vim para decorar, e o cofre se organiza
+pelo método PARA.
+
+Feito para o [Omarchy](https://omarchy.org) (Linux com Hyprland): segue o tema do sistema e roda num terminal kitty
+próprio, com a fonte ajustada para leitura.
+
+## O que ele faz
+
+- **Editor comum:** Ctrl+C/X/V, Ctrl+Z/Y, Ctrl+A, setas andando por linhas visuais e salvamento automático 1 s depois de
+  parar de digitar.
+- **Navegação como num navegador:**
+  - **Esc** volta um nível; **Esc Esc** vai para a tela inicial;
+  - **Alt+← / Alt+→** voltar e avançar entre notas;
+  - **Alt+H** tela inicial.
+- **Anotar primeiro, organizar depois (PARA):**
+  - **Ctrl+N** cria uma nota solta, sem pedir nome, que fica na raiz do cofre (a caixa de entrada);
+  - começar a nota com **/**, ou usar **Alt+M**, escolhe a pasta e o nome;
+  - a tela inicial mostra o que falta catalogar em `01 Projetos`, `02 Áreas`, `03 Resources` e `04 Arquivo`.
+- **Achar coisas:**
+  - **Ctrl+O** abre uma nota pelo nome;
+  - **Ctrl+F** busca na nota; **Ctrl+Shift+F** busca no cofre inteiro;
+  - **Ctrl+P** abre a paleta de comandos;
+  - **Ctrl+Enter** segue um `[[link]]`.
+- **Leitura confortável:** texto numa coluna centralizada, Markdown renderizado e sem barra de status.
+
+## Requisitos
+
+- Omarchy (ou Arch com Neovim 0.11+, kitty e uma Nerd Font). Fora do Omarchy funciona, mas com o tema padrão do LazyVim.
+- Um cofre de notas: por padrão `~/Cofre`. Outra pasta: variável `COFRE`.
+
+## Instalar
+
+```bash
+git clone https://github.com/dlameira/pearwood.git
+cd pearwood
+./instalar.sh                    # ou: COFRE=~/MinhasNotas ./instalar.sh
+```
+
+O instalador liga `~/.config/pearwood` a esta pasta (o perfil `NVIM_APPNAME=pearwood`, separado do seu Neovim de
+sempre) e cria o atalho **pearwood** no menu de apps. Na primeira vez que abrir, o lazy.nvim baixa os plugins.
+
+Atualizar: `git pull` na pasta e reabrir o pearwood.
+
+## O nome
+
+Nos livros do Discworld, de Terry Pratchett, a Bagagem é um baú feito de pereira sapiente (*sapient pearwood*): segue
+o dono a qualquer lugar e protege o que guarda.
+
+## Licença
+
+Apache 2.0 (`LICENSE`), herdada do [LazyVim starter](https://github.com/LazyVim/starter). Alguns arquivos vêm do
+[Omarchy](https://github.com/omacom/omarchy), sob MIT: lista em `NOTICE`.

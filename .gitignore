@@ -1,0 +1,25 @@
+# segredos
+.env
+.env.*
+*.key
+*.pem
+*.dump
+# sistema
+.DS_Store
+*.swp
+*.zip
+*.crx
+lazy-lock.json.bak
+
+# do LazyVim starter
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+
+# instruções locais do Claude (não públicas)
+CLAUDE.local.md

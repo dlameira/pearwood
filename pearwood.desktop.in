@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=pearwood
+Comment=Editor do cofre de notas
+Exec=kitty --class pearwood --title pearwood --config @CONFIG@/kitty.conf --directory @COFRE@ env NVIM_APPNAME=pearwood COFRE=@COFRE@ nvim
+Icon=accessories-text-editor
+Categories=Office;TextEditor;
+Terminal=false

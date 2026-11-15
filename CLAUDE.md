@@ -1,0 +1,44 @@
+# pearwood
+
+Editor para um cofre de notas em Markdown (estilo Obsidian): um perfil próprio do Neovim (`NVIM_APPNAME=pearwood`) sobre o
+LazyVim, com atalhos de editor comum (sem modos), navegação de navegador e fluxo PARA. Feito para o Omarchy.
+Para instalar e usar: `README.md`.
+
+## Regras
+- **As notas nunca entram aqui.** O repo é só o editor; o cofre é outra pasta (`COFRE`, padrão `~/Cofre`).
+- Nada pessoal no código nem nos textos: caminhos fixos de usuário, nomes de pastas reais do cofre, conteúdo de notas.
+  Caminhos sempre via `~`/`$HOME`/`COFRE`; os nomes do PARA (`01 Projetos`…) são os genéricos.
+- `README.md` é para quem instala: manter os atalhos e o "Instalar" de acordo com o código, no mesmo commit.
+- Arquivo vindo do Omarchy ou do LazyVim: manter a lista em `NOTICE`.
+
+O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas, não ao app (que é o pearwood).
+
+## Estrutura
+- `init.lua`, `lua/config/` (options, keymaps de editor comum, autocmds, área de transferência), `lua/plugins/`: base do
+  LazyVim starter + arquivos do Omarchy (tema, troca de tema ao vivo, transparência).
+- `lua/plugins/theme.lua`: carrega o tema atual do Omarchy (`~/.local/state/omarchy/current/theme/neovim.lua`); sem ele,
+  fica o tema padrão.
+- `lua/cofre/`: `para.lua` (caixa de entrada na raiz, catalogar, mover), `nav.lua` (Esc em níveis, Esc Esc, Alt+setas,
+  Alt+H, paleta Ctrl+P), `rascunho.lua` (nota nova sem nome; "/" no início ou Alt+M escolhe pasta e nome),
+  `fonte.lua` (fonte 9 na tela inicial e 11 nas notas, pedida ao kitty pela socket; margem com no-neck-pain),
+  `autosalvar.lua` (1 s depois de parar de digitar).
+- `lua/plugins/cofre.lua` (obsidian.nvim, render-markdown, blink só em `[[`/`#`, tela inicial), `cofre-margem.lua`,
+  `cofre-rodape.lua` (sem barra inferior).
+- `modelos/obra.md`: modelo de nota de referência.
+- `kitty.conf` (terminal próprio, com socket para a fonte), `pearwood.desktop.in` (modelo do atalho), `instalar.sh`.
+
+## Desenvolvimento
+- Plugins (lazy.nvim) ficam fora do repo, em `~/.local/share/pearwood`.
+- Mudanças de Lua só valem ao reabrir o editor.
+- Testar com outro cofre: `COFRE=/tmp/cofre-teste NVIM_APPNAME=pearwood nvim`.
+
+## Pendências
+- [ ] Tela inicial no visual do painel do LazyVim (logo grande), mantendo os itens do cofre.
+- [ ] Captura rápida "para pesquisar" (ideia em aberto).
+- [ ] Ao trocar de fonte (9 → 11) ainda há uma piscada; alternativa é tamanho único.
+- [ ] Captura de tela para o README, com notas inventadas.
+
+## Onde paramos
+2026-11-15 · Preparado para virar público: README próprio, NOTICE, `instalar.sh` (atalho sem caminho fixo), tema com
+plano B fora do Omarchy, `example.lua` do starter removido. App renomeado de "Cofre"/perfil `notas` para `pearwood`
+(o `instalar.sh` migra a instalação antiga).
