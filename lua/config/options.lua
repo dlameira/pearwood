@@ -20,3 +20,6 @@ vim.opt.fillchars:append({ vert = " ", vertleft = " ", vertright = " ", verthori
 vim.opt.laststatus = 0 -- sem barra inferior
 vim.opt.ruler = false
 vim.opt.showcmd = false
+
+-- janelas flutuantes (paleta, busca, menus) com cantos arredondados, como os painéis do spotatui
+vim.o.winborder = "rounded"

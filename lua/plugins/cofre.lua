@@ -87,7 +87,7 @@ return {
       pipe_table = {
         style = "full",
         cell = "padded",
-        border = { "┌", "┬", "┐", "├", "┼", "┤", "└", "┴", "┘", "│", "─" },
+        border = { "╭", "┬", "╮", "├", "┼", "┤", "╰", "┴", "╯", "│", "─" },
       },
       link = { wiki = { icon = "◈ " } },
     },
@@ -105,7 +105,7 @@ return {
       opts.keymap["<C-n>"] = {}
       opts.keymap["<C-y>"] = {}
       opts.completion.menu = opts.completion.menu or {}
-      opts.completion.menu.border = "single"
+      opts.completion.menu.border = "rounded"
       opts.completion.menu.auto_show = function()
         local col = vim.api.nvim_win_get_cursor(0)[2]
         local antes = vim.api.nvim_get_current_line():sub(1, col)
