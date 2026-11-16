@@ -24,6 +24,13 @@ próprio, com a fonte ajustada para leitura.
   - **Ctrl+F** busca na nota; **Ctrl+Shift+F** busca no cofre inteiro;
   - **Ctrl+P** abre a paleta de comandos;
   - **Ctrl+Enter** segue um `[[link]]`.
+- **Botão direito num trecho selecionado:**
+  - **Mandar pro fim** tira o trecho de onde está e guarda no fim da nota, depois de uma linha `----` (as sobras vão
+    se empilhando ali);
+  - **Comentar** prende um comentário ao trecho. Fica no próprio arquivo, no formato do Obsidian
+    (`==trecho==%%comentário%%`): o trecho aparece sublinhado e o comentário, numa linha embaixo. Com o botão direito
+    sobre um trecho comentado dá para **editar** ou **remover** o comentário;
+  - recortar, copiar e colar também estão ali.
 - **Leitura confortável:** texto numa coluna centralizada, Markdown renderizado e sem barra de status.
 
 ## Requisitos

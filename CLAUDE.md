@@ -21,7 +21,9 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
 - `lua/cofre/`: `para.lua` (caixa de entrada na raiz, catalogar, mover), `nav.lua` (Esc em níveis, Esc Esc, Alt+setas,
   Alt+H, paleta Ctrl+P), `rascunho.lua` (nota nova sem nome; "/" no início ou Alt+M escolhe pasta e nome),
   `fonte.lua` (fonte 9 na tela inicial e 11 nas notas, pedida ao kitty pela socket; margem com no-neck-pain),
-  `autosalvar.lua` (1 s depois de parar de digitar).
+  `autosalvar.lua` (1 s depois de parar de digitar), `trecho.lua` (seleção atual; "mandar pro fim"),
+  `comentario.lua` (comentários `==trecho==%%texto%%`, mostrados com extmarks), `menu.lua` (menu do botão direito),
+  `recarregar.lua` (salva, reinicia com `:restart` e volta à mesma nota e posição).
 - `lua/plugins/cofre.lua` (obsidian.nvim, render-markdown, blink só em `[[`/`#`, tela inicial), `cofre-margem.lua`,
   `cofre-rodape.lua` (sem barra inferior).
 - `modelos/obra.md`: modelo de nota de referência.
@@ -29,7 +31,11 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
 
 ## Desenvolvimento
 - Plugins (lazy.nvim) ficam fora do repo, em `~/.local/share/pearwood`.
-- Mudanças de Lua só valem ao reabrir o editor.
+- Mudanças de Lua só valem ao reabrir o editor. Para aplicar na hora num pearwood aberto: `./recarregar.sh` (ele
+  pisca e volta na mesma nota). O `:restart` trava com o noice ligado, por isso `recarregar.lua` o desliga antes.
+- Testar sem mexer na janela de quem está escrevendo: abrir outro pearwood com `COFRE` de teste e conversar com ele
+  pela socket (`$XDG_RUNTIME_DIR/pearwood.<pid>.0`, `nvim --server … --remote-expr/--remote-send`). Esc na nota volta
+  para a tela inicial: nos testes, posicionar com `<Cmd>call cursor()<CR>` e selecionar com Shift+setas.
 - Nunca criar pastas no cofre do usuário sem ele pedir (ex.: o diário só usa `02 Áreas/Diário` se `02 Áreas` existir).
 - Testar com outro cofre: `COFRE=/tmp/cofre-teste NVIM_APPNAME=pearwood nvim`.
 
@@ -41,6 +47,6 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
 - [ ] Captura de tela para o README, com notas inventadas.
 
 ## Onde paramos
-2026-11-15 · Preparado para virar público: README próprio, NOTICE, `instalar.sh` (atalho sem caminho fixo), tema com
-plano B fora do Omarchy, `example.lua` do starter removido. App renomeado de "Cofre"/perfil `notas` para `pearwood`
-(o `instalar.sh` migra a instalação antiga).
+2026-11-15 · Botão direito com "mandar pro fim" e comentários em trechos; recarregamento na hora (`recarregar.sh`);
+paleta comum e cantos arredondados. O menu do botão direito foi testado pelos comandos, não com clique de verdade.
+Antes, no mesmo dia: preparado para virar público (README, NOTICE, `instalar.sh`), renomeado para `pearwood`.
