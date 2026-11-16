@@ -35,6 +35,7 @@ local function atualizar()
     height = 1,
     focusable = false,
     style = "minimal",
+    border = "none", -- o padrão das janelas flutuantes aqui é borda arredondada (winborder)
     zindex = 1,
   }
   if janela and vim.api.nvim_win_is_valid(janela) then
