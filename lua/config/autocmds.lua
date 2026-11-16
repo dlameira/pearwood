@@ -86,11 +86,11 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
 })
 
--- Paleta comum aos outros programas do PC: linhas em cinza #7a7a7a, verde para foco,
+-- Paleta comum aos outros programas do PC: molduras em #555555, verde para foco,
 -- ciano para informação, âmbar para atenção. Reaplica quando o tema do Omarchy muda.
 local function paleta()
   local hl = function(nome, def) vim.api.nvim_set_hl(0, nome, def) end
-  local linha, verde, ciano, ambar = "#7a7a7a", "#82fb9c", "#00c8c8", "#ffc107"
+  local linha, verde, ciano, ambar = "#555555", "#82fb9c", "#00c8c8", "#ffc107"
   hl("FloatBorder", { fg = linha, bg = "NONE" })
   hl("FloatTitle", { fg = verde, bg = "NONE", bold = true })
   hl("WinSeparator", { fg = linha, bg = "NONE" })
