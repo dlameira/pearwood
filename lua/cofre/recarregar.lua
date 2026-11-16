@@ -4,6 +4,12 @@
 local M = {}
 
 function M.agora()
+  -- com uma lista, busca ou caixa de pergunta aberta o :restart fica preso esperando: não reinicia
+  if vim.api.nvim_win_get_config(0).relative ~= "" or not vim.fn.mode():match("^[nivVsS]") then
+    vim.notify("recarregar: feche a lista ou a caixa aberta e tente de novo")
+    return false
+  end
+  vim.o.more = false -- sem "aperte ENTER" no meio do reinício
   pcall(function() require("cofre.rascunho").salvar_todos() end) -- nota nova sem nome vira nota solta
   vim.cmd("silent! wall")
   -- o noice recebe os eventos de tela e não conhece o de reinício: com ele ligado o :restart trava
