@@ -29,6 +29,11 @@ map("x", "<C-c>", '"+y', { desc = "Copiar" })
 map("x", "<C-x>", '"+d', { desc = "Recortar" })
 map("i", "<C-v>", "<C-r><C-o>+", { desc = "Colar" })
 
+-- clique com o botão do meio não cola nada (no Linux ele colaria a última seleção feita)
+for _, clique in ipairs({ "<MiddleMouse>", "<2-MiddleMouse>", "<3-MiddleMouse>", "<4-MiddleMouse>" }) do
+  map({ "", "i", "c" }, clique, "<Nop>", { desc = "Clique do meio não faz nada" })
+end
+
 -- apagar palavra inteira com Ctrl + Backspace / Ctrl + Delete
 map("i", "<C-BS>", "<C-w>", { desc = "Apagar palavra" })
 map("i", "<C-h>", "<C-w>", { desc = "Apagar palavra" })

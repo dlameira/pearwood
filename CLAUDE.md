@@ -23,7 +23,8 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
   `fonte.lua` (fonte 9 na tela inicial e 11 nas notas, pedida ao kitty pela socket; margem com no-neck-pain),
   `autosalvar.lua` (1 s depois de parar de digitar), `trecho.lua` (seleção atual; "mandar pro fim"),
   `comentario.lua` (comentários `==trecho==%%texto%%`, mostrados com extmarks), `menu.lua` (menu do botão direito),
-  `recarregar.lua` (salva, reinicia com `:restart` e volta à mesma nota e posição).
+  `recarregar.lua` (salva, reinicia com `:restart` e volta à mesma nota e posição), `rolagem.lua` (traço fino na
+  borda direita indicando a altura da rolagem).
 - `lua/plugins/cofre.lua` (obsidian.nvim, render-markdown, blink só em `[[`/`#`, tela inicial), `cofre-margem.lua`,
   `cofre-rodape.lua` (sem barra inferior).
 - `modelos/obra.md`: modelo de nota de referência.

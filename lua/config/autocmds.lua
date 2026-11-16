@@ -30,6 +30,7 @@ require("cofre.autosalvar")
 require("cofre.recarregar")
 require("cofre.comentario")
 require("cofre.menu")
+require("cofre.rolagem")
 
 -- Fechar o Cofre (:qa, Sair) com nota nova sem nome: vira nota solta.
 vim.api.nvim_create_autocmd("QuitPre", { callback = function() rascunho.salvar_todos() end })
