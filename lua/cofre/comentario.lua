@@ -91,7 +91,7 @@ function M.marcar(buf)
   end
 end
 
-local function sob_o_cursor()
+local function sob_o_cursor(calado)
   local cur = vim.api.nvim_win_get_cursor(0)
   local l, col = cur[1] - 1, cur[2]
   for _, c in ipairs(analisar(0)) do
@@ -101,23 +101,30 @@ local function sob_o_cursor()
       return c
     end
   end
-  vim.notify("o cursor não está num trecho comentado")
+  if not calado then
+    vim.notify("o cursor não está num trecho comentado")
+  end
 end
+M.sob_o_cursor = sob_o_cursor
 
 local function limpar(txt)
   return (txt:gsub("[\r\n]+", " "):gsub("%%%%+", "%%"):gsub("^%s+", ""):gsub("%s+$", ""))
 end
 
 -- Comenta o trecho selecionado.
-function M.comentar()
+function M.comentar(s)
   local trecho_mod = require("cofre.trecho")
-  local s = trecho_mod.selecao()
-  if not s then
-    return
+  if not s then -- sem trecho guardado pelo menu: usa a seleção de agora
+    s = trecho_mod.selecao()
+    if not s then
+      vim.notify("selecione um trecho primeiro")
+      return
+    end
+    trecho_mod.sair_da_selecao()
   end
+  s = vim.deepcopy(s)
   local buf = vim.api.nvim_get_current_buf()
   local trecho = vim.api.nvim_buf_get_text(buf, s.l1, s.c1, s.l2, s.c2, {})
-  trecho_mod.sair_da_selecao()
   -- as marcas encostam no texto: espaços nas pontas da seleção ficam de fora
   while #trecho > 1 and trecho[1]:match("^%s*$") do
     table.remove(trecho, 1)

@@ -22,7 +22,8 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
   Alt+H, paleta Ctrl+P), `rascunho.lua` (nota nova sem nome; "/" no início ou Alt+M escolhe pasta e nome),
   `fonte.lua` (fonte 9 na tela inicial e 11 nas notas, pedida ao kitty pela socket; margem com no-neck-pain),
   `autosalvar.lua` (1 s depois de parar de digitar), `trecho.lua` (seleção atual; "mandar pro fim"),
-  `comentario.lua` (comentários `==trecho==%%texto%%`, mostrados com extmarks), `menu.lua` (menu do botão direito),
+  `comentario.lua` (comentários `==trecho==%%texto%%`, mostrados com extmarks), `menu.lua` (menu do botão direito: janelinha própria, não o PopUp do Neovim, que dá E335 quando a
+  seleção nasce durante a digitação),
   `recarregar.lua` (salva, reinicia com `:restart` e volta à mesma nota e posição), `rolagem.lua` (pontinho na
   borda direita indicando a altura da rolagem).
 - `lua/plugins/cofre.lua` (obsidian.nvim, render-markdown, blink só em `[[`/`#`, tela inicial), `cofre-margem.lua`,
@@ -49,5 +50,6 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
 
 ## Onde paramos
 2026-11-15 · Botão direito com "mandar pro fim" e comentários em trechos; recarregamento na hora (`recarregar.sh`);
-paleta comum e cantos arredondados. O menu do botão direito foi testado pelos comandos, não com clique de verdade.
+paleta comum e cantos arredondados; marca de rolagem (pontinho). O menu do botão direito é testado com clique
+simulado (`nvim_input_mouse` pela socket); falta confirmar com o mouse de verdade.
 Antes, no mesmo dia: preparado para virar público (README, NOTICE, `instalar.sh`), renomeado para `pearwood`.

@@ -41,13 +41,16 @@ end
 
 -- Tira o trecho selecionado do lugar e põe no fim da nota, depois de uma linha "----"
 -- (criada na primeira vez; as seguintes vão se empilhando embaixo dela).
-function M.mandar_pro_fim()
-  local s = M.selecao()
-  if not s then
-    return
+function M.mandar_pro_fim(s)
+  if not s then -- sem trecho guardado pelo menu: usa a seleção de agora
+    s = M.selecao()
+    if not s then
+      vim.notify("selecione um trecho primeiro")
+      return
+    end
+    M.sair_da_selecao()
   end
   local trecho = vim.api.nvim_buf_get_text(0, s.l1, s.c1, s.l2, s.c2, {})
-  M.sair_da_selecao()
   while #trecho > 0 and em_branco(trecho[1]) do table.remove(trecho, 1) end
   while #trecho > 0 and em_branco(trecho[#trecho]) do table.remove(trecho) end
   if #trecho == 0 then
