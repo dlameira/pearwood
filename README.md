@@ -31,7 +31,7 @@ próprio, com a fonte ajustada para leitura.
     (`==trecho==%%comentário%%`): o trecho aparece sublinhado e o comentário, numa linha embaixo. Com o botão direito
     sobre um trecho comentado dá para **editar** ou **remover** o comentário;
   - recortar, copiar e colar também estão ali.
-- **Leitura confortável:** texto numa coluna centralizada, Markdown renderizado e sem barra de status. Um traço fino
+- **Leitura confortável:** texto numa coluna centralizada, Markdown renderizado e sem barra de status. Um pontinho
   na borda direita mostra em que altura da nota você está.
 
 ## Requisitos

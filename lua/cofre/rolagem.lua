@@ -1,4 +1,4 @@
--- Marca de rolagem: um traço fino, de uma linha de altura, na borda direita da tela, na altura
+-- Marca de rolagem: um pontinho (quase um pixel) na borda direita da tela, na altura
 -- em que a nota está rolada (em cima = começo, embaixo = fim). Sem trilho e sem cor de destaque,
 -- para quase não aparecer. Some quando a nota cabe inteira na tela e fora das notas.
 local M = {}
@@ -43,7 +43,7 @@ local function atualizar()
   end
   if not (buf and vim.api.nvim_buf_is_valid(buf)) then
     buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "▕" })
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "·" })
   end
   cfg.noautocmd = true
   janela = vim.api.nvim_open_win(buf, false, cfg)
