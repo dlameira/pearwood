@@ -47,6 +47,8 @@ O módulo `lua/cofre/` e o nome "cofre" no código se referem à pasta de notas,
 - [ ] Captura rápida "para pesquisar" (ideia em aberto).
 - [ ] Ao trocar de fonte (9 → 11) ainda há uma piscada; alternativa é tamanho único.
 - [ ] Captura de tela para o README, com notas inventadas.
+- [ ] Modelo de obra (`modelos/obra.md`): trocar `**O que roubar:**` por `**O que se destaca:**`, como já foi feito
+  nas fichas do Cofre (pedido do Daniel na conversa do Fichário, 2026-11-21).
 
 ## Onde paramos
 2026-11-15 · Botão direito com "mandar pro fim" e comentários em trechos; recarregamento na hora (`recarregar.sh`);
